@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import { getToken } from "common/auth/tokens";
 import { useRouter } from "next/router";
 import { ROUTES } from "common/constants/paths";
-
+import Table from "components/Table";
 import CmsWrapper from "wrappers/CmsWrapper";
 
 const IndexPage: NextPage = () => {
@@ -15,7 +15,7 @@ const IndexPage: NextPage = () => {
   return (
     <>
       <CmsWrapper>
-        <div>asdsd</div>
+        <Table />
       </CmsWrapper>
     </>
   );
