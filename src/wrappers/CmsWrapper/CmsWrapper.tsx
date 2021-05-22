@@ -1,7 +1,7 @@
 import CmsLayout from "layouts/Cms";
 import Logo from "../../assets/logo.svg";
 import { useRouter } from "next/router";
-import ROUTES from "common/constants/paths";
+import { ROUTES } from "common/constants/paths";
 import { removeToken } from "common/auth/tokens";
 
 export interface CmsWrapperProps {
@@ -23,6 +23,9 @@ const CmsWrapper = ({ children }: CmsWrapperProps) => {
   const handleRedirectToAdd = () => {
     router.push(ROUTES.CMS_ADD);
   };
+  const handleonBrowseBtnClick = () => {
+    router.push(ROUTES.CMS);
+  };
 
   return (
     <CmsLayout
@@ -33,6 +36,7 @@ const CmsWrapper = ({ children }: CmsWrapperProps) => {
         onLogoutBtnClick: handleLogout,
       }}
       onAddBtnClick={handleRedirectToAdd}
+      onBrowseBtnClick={handleonBrowseBtnClick}
     >
       {children}
     </CmsLayout>

@@ -1,4 +1,4 @@
-import { Formik, Form } from "formik";
+import { Formik, FormikHelpers, Form } from "formik";
 import yup from "common/yup";
 import TextField from "components/formik/TextField";
 import Box from "@material-ui/core/Box";
@@ -19,9 +19,9 @@ export interface IWeekOpenHours {
 export interface InitialValues {
   name: string;
   localization: string;
-  price: number | undefined;
-  rating: number | undefined;
-  phone: number | undefined;
+  price: number | "";
+  rating: number | "";
+  phone: number | "";
   description: string;
   openHours: IWeekOpenHours;
   imageSRC: string;
@@ -47,7 +47,10 @@ const loginFormValidationSchema = yup.object({
 });
 
 export interface TouristPointFormProps {
-  onSubmit: (values: InitialValues) => void;
+  onSubmit: (
+    values: InitialValues,
+    actions: FormikHelpers<InitialValues>
+  ) => void;
   initialValues: InitialValues;
 }
 

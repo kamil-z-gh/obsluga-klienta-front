@@ -4,7 +4,7 @@ import Logo from "../../assets/logo.svg";
 import { useSnackbar } from "notistack";
 import { saveToken, getToken } from "common/auth/tokens";
 import { useRouter } from "next/router";
-import ROUTES from "common/constants/paths";
+import { ROUTES } from "common/constants/paths";
 
 const IndexPage: NextPage = () => {
   const router = useRouter();

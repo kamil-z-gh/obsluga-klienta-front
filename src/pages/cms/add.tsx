@@ -1,11 +1,52 @@
 import type { NextPage } from "next";
+import { FormikHelpers } from "formik";
 import { getToken } from "common/auth/tokens";
 import { useRouter } from "next/router";
-import ROUTES from "common/constants/paths";
-import TouristPointForm from "layouts/TouristPointForm";
+import { ROUTES, API_ROUTES } from "common/constants/paths";
+import TouristPointForm, { InitialValues } from "layouts/TouristPointForm";
 import CmsWrapper from "wrappers/CmsWrapper";
+import axios from "axios";
+import { useSnackbar } from "notistack";
+
+const initialValues: InitialValues = {
+  name: "",
+  localization: "",
+  price: "",
+  rating: "",
+  phone: "",
+  description: "",
+  openHours: {
+    monday: "",
+    tuesday: "",
+    wednesday: "",
+    thursday: "",
+    friday: "",
+    saturday: "",
+    sunday: "",
+  },
+  imageSRC: "",
+};
 
 const IndexPage: NextPage = () => {
+  const { enqueueSnackbar } = useSnackbar();
+
+  const handleSubmit = async (
+    values: InitialValues,
+    { resetForm }: FormikHelpers<InitialValues>
+  ) => {
+    try {
+      await axios.post(API_ROUTES.POINT_ADD, { body: values });
+      enqueueSnackbar("Dodano!", {
+        variant: "success",
+      });
+      resetForm();
+    } catch (err) {
+      enqueueSnackbar("Wystąpił błąd!", {
+        variant: "error",
+      });
+    }
+  };
+
   const router = useRouter();
 
   if (typeof window !== "undefined" && !getToken()) {
@@ -16,25 +57,8 @@ const IndexPage: NextPage = () => {
     <>
       <CmsWrapper>
         <TouristPointForm
-          onSubmit={(values) => console.log(values)}
-          initialValues={{
-            name: "",
-            localization: "",
-            price: undefined,
-            rating: undefined,
-            phone: undefined,
-            description: "",
-            openHours: {
-              monday: "",
-              tuesday: "",
-              wednesday: "",
-              thursday: "",
-              friday: "",
-              saturday: "",
-              sunday: "",
-            },
-            imageSRC: "",
-          }}
+          onSubmit={handleSubmit}
+          initialValues={initialValues}
         />
       </CmsWrapper>
     </>
