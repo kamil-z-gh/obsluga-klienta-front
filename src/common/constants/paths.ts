@@ -1,0 +1,7 @@
+const ROUTES = {
+  HOME: "/",
+  CMS: "/cms",
+  CMS_LOGIN: "/cms/login",
+};
+
+export default ROUTES;
