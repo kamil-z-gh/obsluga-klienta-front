@@ -1,4 +1,4 @@
-import type { NextPage } from "next";
+import type { GetServerSidePropsContext } from "next";
 import { FormikHelpers } from "formik";
 import { getToken } from "common/auth/tokens";
 import { useRouter } from "next/router";
@@ -8,26 +8,7 @@ import CmsWrapper from "wrappers/CmsWrapper";
 import axios from "axios";
 import { useSnackbar } from "notistack";
 
-const initialValues: InitialValues = {
-  name: "",
-  localization: "",
-  price: "",
-  rating: "",
-  phone: "",
-  description: "",
-  openHours: {
-    monday: "",
-    tuesday: "",
-    wednesday: "",
-    thursday: "",
-    friday: "",
-    saturday: "",
-    sunday: "",
-  },
-  imageSRC: "",
-};
-
-const IndexPage: NextPage = () => {
+const IndexPage = (initialValues: InitialValues) => {
   const { enqueueSnackbar } = useSnackbar();
 
   const handleSubmit = async (
@@ -35,8 +16,8 @@ const IndexPage: NextPage = () => {
     { resetForm }: FormikHelpers<InitialValues>
   ) => {
     try {
-      await axios.post(API_ROUTES.POINT_ADD, values);
-      enqueueSnackbar("Dodano!", {
+      await axios.put(API_ROUTES.POINT_ADD, values);
+      enqueueSnackbar("Zaktualizowano!", {
         variant: "success",
       });
       resetForm();
@@ -66,3 +47,13 @@ const IndexPage: NextPage = () => {
 };
 
 export default IndexPage;
+
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  const initialValues = await axios.get(
+    `http://localhost:3000${API_ROUTES.POINT_ADD}?id=${context.params!.id}`
+  );
+
+  return {
+    props: initialValues.data,
+  };
+}
