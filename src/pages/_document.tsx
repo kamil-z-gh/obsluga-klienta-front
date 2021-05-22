@@ -1,3 +1,4 @@
+import { Children } from "react";
 import Document, {
   Html,
   Head,
@@ -6,34 +7,64 @@ import Document, {
   DocumentContext,
 } from "next/document";
 import { ServerStyleSheet } from "styled-components";
+import { CacheProvider } from "@emotion/react";
+import createCache from "@emotion/cache";
+import { ServerStyleSheets } from "@material-ui/styles";
+import createEmotionServer from "@emotion/server/create-instance";
 
-class MyDocument extends Document {
+const getCache = () => {
+  const cache = createCache({ key: "css", prepend: true });
+  cache.compat = true;
+
+  return cache;
+};
+
+export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const sheet = new ServerStyleSheet();
+    const sheets = new ServerStyleSheets();
     const originalRenderPage = ctx.renderPage;
+
+    const cache = getCache();
+    const { extractCriticalToChunks } = createEmotionServer(cache);
 
     try {
       ctx.renderPage = () =>
         originalRenderPage({
           enhanceApp: (App) => (props) =>
-            sheet.collectStyles(<App {...props} />),
+            sheet.collectStyles(sheets.collect(<App {...props} />)),
+          // Take precedence over the CacheProvider in our custom _app.js
+          enhanceComponent: (Component) => (props) =>
+            (
+              <CacheProvider value={cache}>
+                <Component {...props} />
+              </CacheProvider>
+            ),
         });
 
       const initialProps = await Document.getInitialProps(ctx);
+      const emotionStyles = extractCriticalToChunks(initialProps.html);
+      const emotionStyleTags = emotionStyles.styles.map((style) => (
+        <style
+          data-emotion={`${style.key} ${style.ids.join(" ")}`}
+          key={style.key}
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: style.css }}
+        />
+      ));
       return {
         ...initialProps,
-        styles: (
-          <>
-            {initialProps.styles}
-            {sheet.getStyleElement()}
-          </>
-        ),
+        styles: [
+          ...Children.toArray(initialProps.styles),
+          sheets.getStyleElement(),
+          sheet.getStyleElement(),
+          ...emotionStyleTags,
+        ],
       };
     } finally {
       sheet.seal();
     }
   }
-
   render() {
     return (
       <Html>
@@ -52,5 +83,3 @@ class MyDocument extends Document {
     );
   }
 }
-
-export default MyDocument;
