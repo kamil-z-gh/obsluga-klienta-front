@@ -22,6 +22,8 @@ import TableCell from "@material-ui/core/TableCell";
 import EditIcon from "@material-ui/icons/Edit";
 import Box from "@material-ui/core/Box";
 import DeleteIcon from "@material-ui/icons/Delete";
+import VisibilityIcon from "@material-ui/icons/Visibility";
+import Link from "components/Link";
 
 const useStyles1 = makeStyles((theme: Theme) =>
   createStyles({
@@ -166,9 +168,7 @@ export default function CustomTable({
             <TableCell>Nazwa</TableCell>
             <TableCell align="right">Lokalizacja</TableCell>
             <TableCell align="right">Cena (zł)</TableCell>
-            {onEditClick && onDeleteClick && (
-              <TableCell align="right">Akcje</TableCell>
-            )}
+            <TableCell align="right">Akcje</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -187,19 +187,29 @@ export default function CustomTable({
                 {row.price}
               </TableCell>
 
-              {onEditClick && onDeleteClick && (
-                <TableCell style={{ width: 160 }} align="right">
-                  <Box display="flex" justifyContent="space-between">
-                    <IconButton onClick={() => onEditClick(row.id)}>
-                      <EditIcon />
-                    </IconButton>
+              <TableCell style={{ width: 160 }} align="right">
+                <Box
+                  display="flex"
+                  justifyContent="flex-end"
+                  alignItems="center"
+                >
+                  <Link href={`/item/${row.id}`}>
+                    <VisibilityIcon />
+                  </Link>
 
-                    <IconButton onClick={() => onDeleteClick(row.id)}>
-                      <DeleteIcon />
-                    </IconButton>
-                  </Box>
-                </TableCell>
-              )}
+                  {onEditClick && onDeleteClick && (
+                    <>
+                      <IconButton onClick={() => onEditClick(row.id)}>
+                        <EditIcon />
+                      </IconButton>
+
+                      <IconButton onClick={() => onDeleteClick(row.id)}>
+                        <DeleteIcon />
+                      </IconButton>
+                    </>
+                  )}
+                </Box>
+              </TableCell>
             </TableRow>
           ))}
           {emptyRows > 0 && (

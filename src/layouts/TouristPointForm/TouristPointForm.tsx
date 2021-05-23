@@ -31,7 +31,7 @@ const loginFormValidationSchema = yup.object({
   name: yup.string().required(),
   localization: yup.string().required(),
   price: yup.number().required(),
-  rating: yup.number().required(),
+  rating: yup.number().max(5).required(),
   phone: yup.number().required(),
   description: yup.string().required(),
   openHours: yup.object({
