@@ -1,0 +1,40 @@
+[
+  {
+    "name": "bnbn",
+    "localization": "vnvbn",
+    "price": 345334,
+    "rating": 5345345,
+    "phone": 34554,
+    "description": "bcvb",
+    "openHours": {
+      "monday": "cvbcvb",
+      "tuesday": "cvbcv",
+      "wednesday": "bcvbcv",
+      "thursday": "bcvbcv",
+      "friday": "bcvbcv",
+      "saturday": "bcvb",
+      "sunday": "cvbvc"
+    },
+    "imageSRC": "cvcbccv",
+    "id": "1621704499421"
+  },
+  {
+    "name": "fghhfhj",
+    "localization": "retretert",
+    "price": 35634,
+    "rating": 534534,
+    "phone": 534531,
+    "description": "dfgdfgdfgdf",
+    "openHours": {
+      "monday": "gdfg",
+      "tuesday": "dfgdfgdf",
+      "wednesday": "gdfgdf",
+      "thursday": "gdfg",
+      "friday": "dfgdf",
+      "saturday": "dfgdfg",
+      "sunday": "gdfg"
+    },
+    "imageSRC": "gdfg",
+    "id": "1621699466238"
+  }
+]

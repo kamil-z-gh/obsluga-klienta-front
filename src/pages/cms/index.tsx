@@ -1,27 +1,57 @@
 import type { NextPage } from "next";
-import { getToken, removeToken } from "common/auth/tokens";
+import { getToken } from "common/auth/tokens";
 import { useRouter } from "next/router";
-import Button from "@material-ui/core/Button";
+import { ROUTES, API_ROUTES } from "common/constants/paths";
+import Table, { TableProps } from "components/Table";
+import CmsWrapper from "wrappers/CmsWrapper";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useSnackbar } from "notistack";
 
 const IndexPage: NextPage = () => {
+  const [data, setData] = useState<TableProps["rows"]>([]);
   const router = useRouter();
+  const { enqueueSnackbar } = useSnackbar();
 
   if (typeof window !== "undefined" && !getToken()) {
-    router.push("/cms/login");
+    router.push(ROUTES.CMS_LOGIN);
   }
 
-  const handleLogout = () => {
-    removeToken();
-    router.push("/cms/login");
+  const fetchTableData = async () => {
+    try {
+      const data = await axios.get(API_ROUTES.POINTS_GET);
+      setData(data.data);
+    } catch {}
+  };
+
+  useEffect(() => {
+    fetchTableData();
+  }, []);
+
+  const handleDeleteItem = async (itemId: string) => {
+    try {
+      await axios.delete(API_ROUTES.POINT_ADD, { data: itemId });
+      fetchTableData();
+      enqueueSnackbar("Usunięto!", {
+        variant: "success",
+      });
+    } catch {
+      enqueueSnackbar("Wystąp[ił błąd!", {
+        variant: "error",
+      });
+    }
   };
 
   return (
-    <div>
-      CMS
-      <Button variant="contained" color="primary" onClick={handleLogout}>
-        wyloguj
-      </Button>
-    </div>
+    <>
+      <CmsWrapper>
+        <Table
+          rows={data}
+          onEditClick={(id) => router.push(`cms/item/${id}/edit`)}
+          onDeleteClick={handleDeleteItem}
+        />
+      </CmsWrapper>
+    </>
   );
 };
 
