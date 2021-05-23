@@ -17,7 +17,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
 
   if (req.query.search) {
     const filteredRes = resources.filter((item: IdataItem) =>
-      item.name.includes(req.query.search[0])
+      item.name.toLowerCase().includes(req.query.search[0].toLowerCase())
     );
 
     return res.send(filteredRes);
