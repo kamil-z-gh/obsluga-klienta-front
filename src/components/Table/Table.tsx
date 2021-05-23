@@ -128,8 +128,8 @@ interface Item {
 
 export interface TableProps {
   rows: Item[];
-  onDeleteClick: (itemId: string) => void;
-  onEditClick: (itemId: string) => void;
+  onDeleteClick?: (itemId: string) => void;
+  onEditClick?: (itemId: string) => void;
 }
 
 export default function CustomTable({
@@ -166,7 +166,9 @@ export default function CustomTable({
             <TableCell>Nazwa</TableCell>
             <TableCell align="right">Lokalizacja</TableCell>
             <TableCell align="right">Cena (zł)</TableCell>
-            <TableCell align="right">Akcje</TableCell>
+            {onEditClick && onDeleteClick && (
+              <TableCell align="right">Akcje</TableCell>
+            )}
           </TableRow>
         </TableHead>
         <TableBody>
@@ -184,17 +186,20 @@ export default function CustomTable({
               <TableCell style={{ width: 160 }} align="right">
                 {row.price}
               </TableCell>
-              <TableCell style={{ width: 160 }} align="right">
-                <Box display="flex" justifyContent="space-between">
-                  <IconButton onClick={() => onEditClick(row.id)}>
-                    <EditIcon />
-                  </IconButton>
 
-                  <IconButton onClick={() => onDeleteClick(row.id)}>
-                    <DeleteIcon />
-                  </IconButton>
-                </Box>
-              </TableCell>
+              {onEditClick && onDeleteClick && (
+                <TableCell style={{ width: 160 }} align="right">
+                  <Box display="flex" justifyContent="space-between">
+                    <IconButton onClick={() => onEditClick(row.id)}>
+                      <EditIcon />
+                    </IconButton>
+
+                    <IconButton onClick={() => onDeleteClick(row.id)}>
+                      <DeleteIcon />
+                    </IconButton>
+                  </Box>
+                </TableCell>
+              )}
             </TableRow>
           ))}
           {emptyRows > 0 && (

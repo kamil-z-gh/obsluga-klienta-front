@@ -1,22 +1,23 @@
 import type { NextPage } from "next";
-import Button from "@material-ui/core/Button";
-
-import styled from "styled-components";
-
-const Asd = styled.h1`
-  font-size: 120px;
-  color: ${({ theme }) => theme.palette.primary.main};
-`;
+import Search, { InitialValues } from "layouts/Search";
+import axios from "axios";
+import { API_ROUTES } from "common/constants/paths";
+import { useState } from "react";
 
 const IndexPage: NextPage = () => {
-  return (
-    <div>
-      <Asd>asds</Asd>
+  const [data, setData] = useState<any>([]);
 
-      <Button variant="contained" color="primary">
-        asdasd
-      </Button>
-    </div>
+  const handleSubmit = async (values: InitialValues) => {
+    try {
+      const data = await axios.post(API_ROUTES.POINTS_SEARCH, values);
+      setData(data.data);
+    } catch {}
+  };
+
+  return (
+    <>
+      <Search onSubmit={handleSubmit} data={data} />
+    </>
   );
 };
 

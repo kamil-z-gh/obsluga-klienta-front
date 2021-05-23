@@ -7,4 +7,5 @@ export const ROUTES = {
 export const API_ROUTES = {
   POINT_ADD: "/api/item",
   POINTS_GET: "/api/items",
+  POINTS_SEARCH: "/api/items",
 };
