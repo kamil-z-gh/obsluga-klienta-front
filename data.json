@@ -1,40 +1,40 @@
 [
   {
-    "name": "bnbn",
-    "localization": "vnvbn",
-    "price": 345334,
-    "rating": 5345345,
-    "phone": 34554,
-    "description": "bcvb",
+    "name": "Tatry",
+    "localization": "Tatry",
+    "price": 50,
+    "rating": 5,
+    "phone": 111222,
+    "description": "Najwyższe pasmo w łańcuchu Karpat, również najwyższe między Alpami a Uralem i Kaukazem. Są częścią Łańcucha Tatrzańskiego, w Centralnych Karpatach Zachodnich. ",
     "openHours": {
-      "monday": "cvbcvb",
-      "tuesday": "cvbcv",
-      "wednesday": "bcvbcv",
-      "thursday": "bcvbcv",
-      "friday": "bcvbcv",
-      "saturday": "bcvb",
-      "sunday": "cvbvc"
+      "monday": "Całą dobę",
+      "tuesday": "Całą dobę",
+      "wednesday": "Całą dobę",
+      "thursday": "Całą dobę",
+      "friday": "Całą dobę",
+      "saturday": "Całą dobę",
+      "sunday": "Całą dobę"
     },
-    "imageSRC": "cvcbccv",
-    "id": "1621704499421"
+    "imageSRC": "https://tatromaniak.pl/wp-content/uploads/2019/04/Tatry-Polskie-8-1024x544-830x460-c-default.jpg",
+    "id": "1621763451700"
   },
   {
-    "name": "fghhfhj",
-    "localization": "retretert",
-    "price": 35634,
-    "rating": 534534,
-    "phone": 534531,
-    "description": "dfgdfgdfgdf",
+    "name": "Varso Tower",
+    "localization": "Warszawa",
+    "price": 100,
+    "rating": 5,
+    "phone": 111222,
+    "description": "Kompleks budynków biurowych budowany w warszawskiej dzielnicy Wola, na rogu ulicy Chmielnej i alei Jana Pawła II. Varso Tower jest najwyższym budynkiem w Polsce i w Unii Europejskiej.",
     "openHours": {
-      "monday": "gdfg",
-      "tuesday": "dfgdfgdf",
-      "wednesday": "gdfgdf",
-      "thursday": "gdfg",
-      "friday": "dfgdf",
-      "saturday": "dfgdfg",
-      "sunday": "gdfg"
+      "monday": "Całą dobę",
+      "tuesday": "Całą dobę",
+      "wednesday": "Całą dobę",
+      "thursday": "Całą dobę",
+      "friday": "Całą dobę",
+      "saturday": "Całą dobę",
+      "sunday": "Całą dobę"
     },
-    "imageSRC": "gdfg",
-    "id": "1621699466238"
+    "imageSRC": "https://obserwatorgospodarczy.pl/images/varsotower1-1.jpg",
+    "id": "1621763276663"
   }
 ]

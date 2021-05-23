@@ -22,6 +22,8 @@ import TableCell from "@material-ui/core/TableCell";
 import EditIcon from "@material-ui/icons/Edit";
 import Box from "@material-ui/core/Box";
 import DeleteIcon from "@material-ui/icons/Delete";
+import VisibilityIcon from "@material-ui/icons/Visibility";
+import Link from "components/Link";
 
 const useStyles1 = makeStyles((theme: Theme) =>
   createStyles({
@@ -128,8 +130,8 @@ interface Item {
 
 export interface TableProps {
   rows: Item[];
-  onDeleteClick: (itemId: string) => void;
-  onEditClick: (itemId: string) => void;
+  onDeleteClick?: (itemId: string) => void;
+  onEditClick?: (itemId: string) => void;
 }
 
 export default function CustomTable({
@@ -184,15 +186,28 @@ export default function CustomTable({
               <TableCell style={{ width: 160 }} align="right">
                 {row.price}
               </TableCell>
-              <TableCell style={{ width: 160 }} align="right">
-                <Box display="flex" justifyContent="space-between">
-                  <IconButton onClick={() => onEditClick(row.id)}>
-                    <EditIcon />
-                  </IconButton>
 
-                  <IconButton onClick={() => onDeleteClick(row.id)}>
-                    <DeleteIcon />
-                  </IconButton>
+              <TableCell style={{ width: 160 }} align="right">
+                <Box
+                  display="flex"
+                  justifyContent="flex-end"
+                  alignItems="center"
+                >
+                  <Link href={`/item/${row.id}`}>
+                    <VisibilityIcon />
+                  </Link>
+
+                  {onEditClick && onDeleteClick && (
+                    <>
+                      <IconButton onClick={() => onEditClick(row.id)}>
+                        <EditIcon />
+                      </IconButton>
+
+                      <IconButton onClick={() => onDeleteClick(row.id)}>
+                        <DeleteIcon />
+                      </IconButton>
+                    </>
+                  )}
                 </Box>
               </TableCell>
             </TableRow>

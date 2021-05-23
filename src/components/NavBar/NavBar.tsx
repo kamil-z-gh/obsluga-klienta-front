@@ -3,8 +3,9 @@ import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Typography from "@material-ui/core/Typography";
 import Button, { ButtonProps } from "@material-ui/core/Button";
-import IconButton, { IconButtonProps } from "@material-ui/core/IconButton";
+
 import Box from "@material-ui/core/Box";
+import Link from "components/Link";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -21,14 +22,12 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export interface NavBarProps {
   logo: React.ReactNode;
-  onLogoClick: IconButtonProps["onClick"];
-  onLogoutBtnClick: ButtonProps["onClick"];
-  logoutBtnLabel: string;
+  onLogoutBtnClick?: ButtonProps["onClick"];
+  logoutBtnLabel?: string;
 }
 
 export default function NavBar({
   logo,
-  onLogoClick,
   onLogoutBtnClick,
   logoutBtnLabel,
 }: NavBarProps) {
@@ -37,27 +36,32 @@ export default function NavBar({
   return (
     <div className={classes.root}>
       <AppBar position="static">
-        <Box display="flex" justifyContent="space-between" pl={2} pr={2}>
+        <Box
+          display="flex"
+          justifyContent="space-between"
+          pl={2}
+          pr={2}
+          pt={1}
+          pb={1}
+        >
           <Box
             display="flex"
             justifyContent="space-between"
             alignItems="center"
           >
-            <IconButton
-              edge="start"
-              className={classes.menuButton}
-              color="inherit"
-              aria-label="menu"
-              onClick={onLogoClick}
-            >
-              {logo}
-            </IconButton>
-            <Typography>Biuro Obsługi Turystycznej</Typography>
+            <Link href="/">
+              <a>{logo}</a>
+            </Link>
+            <Box ml={2}>
+              <Typography>Biuro Obsługi Turystycznej</Typography>
+            </Box>
           </Box>
 
-          <Button color="inherit" onClick={onLogoutBtnClick}>
-            {logoutBtnLabel}
-          </Button>
+          {logoutBtnLabel && (
+            <Button color="inherit" onClick={onLogoutBtnClick}>
+              {logoutBtnLabel}
+            </Button>
+          )}
         </Box>
       </AppBar>
     </div>

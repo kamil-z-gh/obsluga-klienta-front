@@ -20,6 +20,7 @@ const IndexPage: NextPage = () => {
   const fetchTableData = async () => {
     try {
       const data = await axios.get(API_ROUTES.POINTS_GET);
+
       setData(data.data);
     } catch {}
   };

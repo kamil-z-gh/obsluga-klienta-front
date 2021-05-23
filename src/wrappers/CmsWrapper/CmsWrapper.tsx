@@ -11,10 +11,6 @@ export interface CmsWrapperProps {
 const CmsWrapper = ({ children }: CmsWrapperProps) => {
   const router = useRouter();
 
-  const handleRedirectToIndex = () => {
-    router.push(ROUTES.HOME);
-  };
-
   const handleLogout = () => {
     removeToken();
     router.push(ROUTES.CMS_LOGIN);
@@ -32,7 +28,6 @@ const CmsWrapper = ({ children }: CmsWrapperProps) => {
       navBarProps={{
         logo: <Logo />,
         logoutBtnLabel: "Wyloguj",
-        onLogoClick: handleRedirectToIndex,
         onLogoutBtnClick: handleLogout,
       }}
       onAddBtnClick={handleRedirectToAdd}

@@ -21,7 +21,6 @@ const CmsLayout = ({
     <>
       <NavBar
         logo={navBarProps.logo}
-        onLogoClick={navBarProps.onLogoClick}
         logoutBtnLabel={navBarProps.logoutBtnLabel}
         onLogoutBtnClick={navBarProps.onLogoutBtnClick}
       />
