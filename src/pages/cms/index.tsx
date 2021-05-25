@@ -7,6 +7,7 @@ import CmsWrapper from "wrappers/CmsWrapper";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSnackbar } from "notistack";
+import APIUrl from "common/constants/apiUrl";
 
 const IndexPage: NextPage = () => {
   const [data, setData] = useState<TableProps["rows"]>([]);
@@ -19,7 +20,7 @@ const IndexPage: NextPage = () => {
 
   const fetchTableData = async () => {
     try {
-      const data = await axios.get(API_ROUTES.POINTS_GET);
+      const data = await axios.get(`${APIUrl}${API_ROUTES.POINTS_GET}`);
 
       setData(data.data);
     } catch {}
@@ -31,13 +32,15 @@ const IndexPage: NextPage = () => {
 
   const handleDeleteItem = async (itemId: string) => {
     try {
-      await axios.delete(API_ROUTES.POINT_ADD, { data: itemId });
+      await axios.delete(`${APIUrl}${API_ROUTES.POINT_ADD}`, {
+        data: { itemId },
+      });
       fetchTableData();
       enqueueSnackbar("Usunięto!", {
         variant: "success",
       });
     } catch {
-      enqueueSnackbar("Wystąp[ił błąd!", {
+      enqueueSnackbar("Wystąpił błąd!", {
         variant: "error",
       });
     }

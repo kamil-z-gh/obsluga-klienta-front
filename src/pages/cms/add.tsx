@@ -7,6 +7,7 @@ import TouristPointForm, { InitialValues } from "layouts/TouristPointForm";
 import CmsWrapper from "wrappers/CmsWrapper";
 import axios from "axios";
 import { useSnackbar } from "notistack";
+import APIUrl from "common/constants/apiUrl";
 
 const initialValues: InitialValues = {
   name: "",
@@ -35,7 +36,7 @@ const IndexPage: NextPage = () => {
     { resetForm }: FormikHelpers<InitialValues>
   ) => {
     try {
-      await axios.post(API_ROUTES.POINT_ADD, values);
+      await axios.post(`${APIUrl}${API_ROUTES.POINT_ADD}`, values);
       enqueueSnackbar("Dodano!", {
         variant: "success",
       });

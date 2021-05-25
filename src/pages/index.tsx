@@ -3,15 +3,20 @@ import Search, { InitialValues } from "layouts/Search";
 import axios from "axios";
 import { API_ROUTES } from "common/constants/paths";
 import { useEffect, useState } from "react";
+import APIUrl from "common/constants/apiUrl";
 
 const IndexPage: NextPage = () => {
   const [data, setData] = useState<any>([]);
 
   const handleSubmit = async (values: InitialValues) => {
     try {
-      const data = await axios.post(API_ROUTES.POINTS_SEARCH, null, {
-        params: values,
-      });
+      const data = await axios.post(
+        `${APIUrl}${API_ROUTES.POINTS_SEARCH}`,
+        null,
+        {
+          params: values,
+        }
+      );
       setData(data.data);
     } catch {}
   };

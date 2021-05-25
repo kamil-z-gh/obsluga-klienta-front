@@ -7,6 +7,7 @@ import TouristPointForm, { InitialValues } from "layouts/TouristPointForm";
 import CmsWrapper from "wrappers/CmsWrapper";
 import axios from "axios";
 import { useSnackbar } from "notistack";
+import APIUrl from "common/constants/apiUrl";
 
 const IndexPage = (initialValues: InitialValues) => {
   const { enqueueSnackbar } = useSnackbar();
@@ -16,7 +17,7 @@ const IndexPage = (initialValues: InitialValues) => {
     { resetForm }: FormikHelpers<InitialValues>
   ) => {
     try {
-      await axios.put(API_ROUTES.POINT_ADD, values);
+      await axios.put(`${APIUrl}${API_ROUTES.POINT_ADD}`, values);
       enqueueSnackbar("Zaktualizowano!", {
         variant: "success",
       });
@@ -51,9 +52,7 @@ export default IndexPage;
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const initialValues = await axios.get(
-    `https://biuro-obslugi-klienta.vercel.app${API_ROUTES.POINT_ADD}?id=${
-      context.params!.id
-    }`
+    `${APIUrl}${API_ROUTES.POINT_ADD}?id=${context.params!.id}`
   );
 
   return {

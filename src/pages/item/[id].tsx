@@ -7,6 +7,7 @@ import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import { InitialValues } from "layouts/TouristPointForm";
+import APIUrl from "common/constants/apiUrl";
 
 const IndexPage = (data: InitialValues) => {
   return (
@@ -46,9 +47,7 @@ export default IndexPage;
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const initialValues = await axios.get(
-    `https://biuro-obslugi-klienta.vercel.app/${API_ROUTES.POINT_ADD}?id=${
-      context.params!.id
-    }`
+    `${APIUrl}${API_ROUTES.POINT_ADD}?id=${context.params!.id}`
   );
 
   return {
