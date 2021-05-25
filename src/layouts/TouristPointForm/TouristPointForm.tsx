@@ -52,11 +52,13 @@ export interface TouristPointFormProps {
     actions: FormikHelpers<InitialValues>
   ) => void;
   initialValues: InitialValues;
+  actionBtnLabel?: string;
 }
 
 const TouristPointForm = ({
   onSubmit,
   initialValues,
+  actionBtnLabel = "Dodaj",
 }: TouristPointFormProps) => {
   return (
     <Formik
@@ -126,7 +128,7 @@ const TouristPointForm = ({
 
         <Box mb={4} display="flex" justifyContent="flex-end">
           <Button variant="contained" color="primary" type="submit">
-            Dodaj
+            {actionBtnLabel}
           </Button>
         </Box>
       </Form>

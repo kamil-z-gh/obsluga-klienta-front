@@ -40,6 +40,7 @@ const IndexPage = (initialValues: InitialValues) => {
         <TouristPointForm
           onSubmit={handleSubmit}
           initialValues={initialValues}
+          actionBtnLabel="edytuj"
         />
       </CmsWrapper>
     </>
