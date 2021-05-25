@@ -8,6 +8,7 @@ import LockIcon from "@material-ui/icons/Lock";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import ColoredIconWrapper from "components/ColoredIconWrapper";
 import Button from "@material-ui/core/Button";
+import { useTheme } from "@material-ui/core/styles";
 
 export interface InitialValues {
   email: string;
@@ -30,6 +31,7 @@ export interface LoginProps {
 }
 
 const Login = ({ logo, onSubmit }: LoginProps) => {
+  const theme = useTheme();
   return (
     <StyledLoginWrapper>
       <StyledLoginContentWrpaper>
@@ -51,7 +53,7 @@ const Login = ({ logo, onSubmit }: LoginProps) => {
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
-                      <ColoredIconWrapper color="primary">
+                      <ColoredIconWrapper color={theme.palette.primary.main}>
                         <PersonIcon />
                       </ColoredIconWrapper>
                     </InputAdornment>
@@ -68,7 +70,7 @@ const Login = ({ logo, onSubmit }: LoginProps) => {
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
-                      <ColoredIconWrapper color="primary">
+                      <ColoredIconWrapper color={theme.palette.primary.main}>
                         <LockIcon />
                       </ColoredIconWrapper>
                     </InputAdornment>
