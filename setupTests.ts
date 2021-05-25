@@ -1,4 +1,4 @@
-import '@testing-library/jest-dom'
-import { loadEnvConfig } from '@next/env'
+import Enzyme from "enzyme";
+import Adapter from "@wojtekmaj/enzyme-adapter-react-17";
 
-loadEnvConfig(__dirname, true, { info: () => null, error: console.error })
+Enzyme.configure({ adapter: new Adapter() });

@@ -7,4 +7,7 @@ export default createGlobalStyle`
   padding: 0;
   font-family: ${({ theme }) => theme.typography.fontFamily};
   }
+  body {
+    min-height: 100vh;
+  }
 `;

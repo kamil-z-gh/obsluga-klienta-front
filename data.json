@@ -1,0 +1,21 @@
+[
+  {
+    "name": "V",
+    "localization": "dasdas",
+    "price": 3,
+    "rating": 3,
+    "phone": 3,
+    "description": "asdasd",
+    "openHours": {
+      "monday": "asdasd",
+      "tuesday": "asdas",
+      "wednesday": "dasd",
+      "thursday": "dasd",
+      "friday": "asdas",
+      "saturday": "dasdas",
+      "sunday": "dasd"
+    },
+    "imageSRC": "https://krknews.pl/wp-content/uploads/2020/07/krakow-noca-scaled.jpeg",
+    "id": "1621958416224"
+  }
+]
