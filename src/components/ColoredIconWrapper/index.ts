@@ -1,5 +1,4 @@
-import { ColoredIconWrapperProps, color } from "./ColoredIconWrapper";
+import { ColoredIconWrapperProps } from "./ColoredIconWrapper";
 export { default } from "./ColoredIconWrapper";
 
 export type { ColoredIconWrapperProps };
-export type { color };

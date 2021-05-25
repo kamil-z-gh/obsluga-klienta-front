@@ -146,10 +146,7 @@ export default function CustomTable({
   const emptyRows =
     rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
-  const handleChangePage = (
-    event: React.MouseEvent<HTMLButtonElement> | null,
-    newPage: number
-  ) => {
+  const handleChangePage = (newPage: number) => {
     setPage(newPage);
   };
 
@@ -230,7 +227,7 @@ export default function CustomTable({
                 inputProps: { "aria-label": "rows per page" },
                 native: true,
               }}
-              onChangePage={handleChangePage}
+              onChangePage={(_, newPage: number) => handleChangePage(newPage)}
               onChangeRowsPerPage={handleChangeRowsPerPage}
               ActionsComponent={TablePaginationActions}
             />
