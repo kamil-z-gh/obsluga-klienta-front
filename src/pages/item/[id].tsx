@@ -46,7 +46,9 @@ export default IndexPage;
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const initialValues = await axios.get(
-    `http://localhost:3000${API_ROUTES.POINT_ADD}?id=${context.params!.id}`
+    `https://biuro-obslugi-klienta.vercel.app/${API_ROUTES.POINT_ADD}?id=${
+      context.params!.id
+    }`
   );
 
   return {
