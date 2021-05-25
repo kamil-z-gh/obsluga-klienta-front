@@ -1,1 +1,40 @@
-[]
+[
+  {
+    "name": "asd",
+    "localization": "asdasd",
+    "price": 3,
+    "rating": 3,
+    "phone": 3,
+    "description": "asdasd",
+    "openHours": {
+      "monday": "asdasd",
+      "tuesday": "asdas",
+      "wednesday": "dasd",
+      "thursday": "asd",
+      "friday": "dasd",
+      "saturday": "dasdas",
+      "sunday": "asdas"
+    },
+    "imageSRC": "adasd",
+    "id": "1621962942416"
+  },
+  {
+    "name": "asdasd",
+    "localization": "asdas",
+    "price": 3,
+    "rating": 4,
+    "phone": 4,
+    "description": "wr",
+    "openHours": {
+      "monday": "asdasd",
+      "tuesday": "asda",
+      "wednesday": "sdasd",
+      "thursday": "asdasd",
+      "friday": "asdas",
+      "saturday": "dasd",
+      "sunday": "asd"
+    },
+    "imageSRC": "https://obserwatorgospodarczy.pl/images/varsotower1-1.jpg",
+    "id": "1621962825490"
+  }
+]

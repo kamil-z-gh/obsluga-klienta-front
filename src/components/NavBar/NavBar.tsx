@@ -53,7 +53,7 @@ export default function NavBar({
               <a>{logo}</a>
             </Link>
             <Box ml={2}>
-              <Typography>Biuro Obsługi Turystycznej</Typography>
+              <Typography>Biuro obsługi turystycznej</Typography>
             </Box>
           </Box>
 
