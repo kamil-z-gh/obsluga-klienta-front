@@ -1,7 +1,6 @@
-import { Provider as ReduxProvider } from "react-redux";
 import type { AppProps } from "next/app";
 import CreateGlobalStyle from "common/styles/globalStyles.styled";
-import store from "../app/store";
+
 import { StylesProvider } from "@material-ui/core/styles";
 import { ThemeProvider as StyledThemeProvider } from "styled-components";
 import { ThemeProvider as MuiThemeProvider } from "@material-ui/core/styles";
@@ -26,29 +25,27 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   const notistackStyles = useNotistackStyles();
   return (
-    <ReduxProvider store={store}>
-      <CacheProvider value={cache}>
-        <StylesProvider injectFirst>
-          <MuiThemeProvider theme={theme}>
-            <CssBaseline />
-            <StyledThemeProvider theme={theme}>
-              <SnackbarProvider
-                maxSnack={5}
-                classes={{
-                  variantSuccess: notistackStyles.success,
-                  variantError: notistackStyles.error,
-                  variantWarning: notistackStyles.warning,
-                  variantInfo: notistackStyles.info,
-                }}
-              >
-                <CreateGlobalStyle />
-                <Component {...pageProps} />
-              </SnackbarProvider>
-            </StyledThemeProvider>
-          </MuiThemeProvider>
-        </StylesProvider>
-      </CacheProvider>
-    </ReduxProvider>
+    <CacheProvider value={cache}>
+      <StylesProvider injectFirst>
+        <MuiThemeProvider theme={theme}>
+          <CssBaseline />
+          <StyledThemeProvider theme={theme}>
+            <SnackbarProvider
+              maxSnack={5}
+              classes={{
+                variantSuccess: notistackStyles.success,
+                variantError: notistackStyles.error,
+                variantWarning: notistackStyles.warning,
+                variantInfo: notistackStyles.info,
+              }}
+            >
+              <CreateGlobalStyle />
+              <Component {...pageProps} />
+            </SnackbarProvider>
+          </StyledThemeProvider>
+        </MuiThemeProvider>
+      </StylesProvider>
+    </CacheProvider>
   );
 }
 
