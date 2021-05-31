@@ -30,6 +30,17 @@ export interface LoginProps {
   onSubmit: (values: InitialValues) => void;
 }
 
+/**
+ * @callback onSubmit
+ * @param {InitialValues} values
+ * @returns {void}
+ */
+
+/**
+ * Komponent renderujący layout logownaia do panelu administratora
+ * @param {SpecialType}  logo - logo renderowane na górze panelu z formularzem
+ * @param {onSubmit} onSubmit - funkcja submitująca formularz logowania
+ */
 const Login = ({ logo, onSubmit }: LoginProps) => {
   const theme = useTheme();
   return (

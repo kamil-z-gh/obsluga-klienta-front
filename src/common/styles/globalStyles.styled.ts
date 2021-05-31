@@ -1,6 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
-export default createGlobalStyle`
+/** globalne style  */
+const globalStyles = createGlobalStyle`
   * {
   box-sizing: border-box;
   margin: 0;
@@ -11,3 +12,5 @@ export default createGlobalStyle`
     min-height: 100vh;
   }
 `;
+
+export default globalStyles;
