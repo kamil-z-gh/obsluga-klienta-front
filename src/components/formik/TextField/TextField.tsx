@@ -10,7 +10,11 @@ export interface TextFieldProps
   > {
   name: string;
 }
-
+/**
+ * Komponent zwracający input tekstowy używany w formularzu
+ * @extends {MuiTextFieldProps}
+ * @param {string}  name - atrybut name dla HTML tagu inputa
+ */
 const FormikTextField = ({ name, helperText, ...rest }: TextFieldProps) => {
   const [field, meta] = useField(name);
 

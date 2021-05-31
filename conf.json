@@ -1,0 +1,34 @@
+{
+  "plugins": ["node_modules/better-docs/typescript"],
+  "recurseDepth": 10,
+  "source": {
+    "include": [
+      "src/common/auth/tokens.tsx",
+      "src/common/constants/apiUrl.ts",
+      "src/common/styles/globalStyles.styled.ts",
+      "src/common/theme/notistackTheme.ts",
+      "src/common/theme/theme.ts",
+      "src/common/yup/yup.tsx",
+      "src/components/formik/TextField/TextField.tsx",
+      "src/components/ColoredIconWrapper/ColoredIconWrapper.tsx",
+      "src/components/NavBar/NavBar.tsx",
+      "src/components/Table/Table.tsx",
+      "src/layouts/Cms/CmsLayout.tsx",
+      "src/layouts/Login/Login.tsx",
+      "src/layouts/Search/Search.tsx",
+      "src/layouts/TouristPointForm/TouristPointForm.tsx",
+      "src/wrappers/CmsWrapper/CmsWrapper.tsx"
+    ],
+    "includePattern": ".+\\.ts(doc|x)?$",
+    "excludePattern": "(^|\\/|\\\\)_"
+  },
+  "sourceType": "module",
+  "tags": {
+    "allowUnknownTags": true,
+    "dictionaries": ["jsdoc", "closure"]
+  },
+  "templates": {
+    "cleverLinks": false,
+    "monospaceLinks": false
+  }
+}

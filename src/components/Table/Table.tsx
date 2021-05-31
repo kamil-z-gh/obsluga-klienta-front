@@ -134,11 +134,30 @@ export interface TableProps {
   onEditClick?: (itemId: string) => void;
 }
 
-export default function CustomTable({
-  rows,
-  onDeleteClick,
-  onEditClick,
-}: TableProps) {
+/**
+ * @callback onDeleteClick
+ * @param {string} itemId - id punktu turystycznego
+ * @returns {void}
+ */
+/**
+ * @callback onEditClick
+ * @param {string} itemId - id punktu turystycznego
+ * @returns {void}
+ */
+/**
+ * @typedef {object} Item - interface pojedynczego itemu wyświetlanego w tabeli
+ * @property {string} id - id danego elementu
+ * @property {string} name - nazwa danego elementu
+ * @property {string} localization - lokalizacja danego elementu
+ * @property {number} price - cena wstępu na dany obiekt
+ */
+/**
+ * Komponent renderujący tabelę przedstawiającą punkty turystyczne
+ * @param {Item[]}  rows - prop otrzymujący dane, na podstawie których renderuje zawartość
+ * @param {onDeleteClick=}  onDeleteClick - funkcja uruchamiana przy kliknięciu na ikonę usunięcia - jeśli nie podano: nie wyrendruje się ikona
+ * @param {onEditClick=}  onEditClick - funkcja uruchamiana przy kliknięciu na ikonę edycji - jeśli nie podano: nie wyrendruje się ikona
+ * */
+function CustomTable({ rows, onDeleteClick, onEditClick }: TableProps) {
   const classes = useStyles2();
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
@@ -237,3 +256,4 @@ export default function CustomTable({
     </TableContainer>
   );
 }
+export default CustomTable;

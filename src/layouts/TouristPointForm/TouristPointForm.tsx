@@ -55,6 +55,42 @@ export interface TouristPointFormProps {
   actionBtnLabel?: string;
 }
 
+/**
+ * @typedef {object} IWeekOpenHours - struktura danych formularza
+ * @property {string} monday - godziny otwarcia w poniedziałek
+ * @property {string} tuesday - godziny otwarcia we wtorek
+ * @property {string} wednesday - godziny otwarcia w środę
+ * @property {string} thursday - godziny otwarcia w czwartek
+ * @property {string} friday - godziny otwarcia w piątek
+ * @property {string} saturday - godziny otwarcia w sobotę
+ * @property {string} sunday - godziny otwarcia w niedzielę
+ */
+
+/**
+ * @typedef {object} InitialValues - struktura danych formularza
+ * @property {string} name - nazwa punktu
+ * @property {string} localization - lokalizacja punktu
+ * @property {number | ""} price -cena wstępu na dany obiekt
+ * @property {number | ""} rating - ocena obiektu
+ * @property {number | ""} phone - telefon kontaktowy do punktu turystycznego
+ * @property {string} description - opis punktu turystycznego
+ * @property {IWeekOpenHours} openHours - obiekt zawierający godziny wstepu na dany obiekt turystyczny
+ * @property {string} imageSRC - link do poglądowego zdjęcia
+ */
+
+/**
+ * @callback onSubmit
+ * @param {InitialValues} values - struktura danych uzupełnionych w formularzu
+ * @param {FormikHelpers<InitialValues>} actions - obiekt akcji z biblioteki Formik
+ * @returns {void}
+ */
+
+/**
+ * Komponent renderujący formularz dodawania/edycji punktu turystycznego
+ * @param {onSubmit}  onSubmit - funkcja uruchamiana podczas submitowania formularza
+ * @param {TableProps} initialValues - dane uzupełnione przez użytkownika w formularzu
+ * @param {string} actionBtnLabel - napis wyświetlany na przycisku obsługującym formularz
+ * */
 const TouristPointForm = ({
   onSubmit,
   initialValues,

@@ -26,7 +26,16 @@ export interface SearchProps {
   onSubmit: (values: InitialValues) => void;
   data: TableProps["rows"];
 }
-
+/**
+ * @callback onSubmit
+ * @param {InitialValues} values
+ * @returns {void}
+ */
+/**
+ * Komponent renderujący głowny widok wyszukiwania punktów turystycznych widziany przez klienta
+ * @param {onSubmit}  onSubmit - funkcja uruchamiana podczas submitowania formularza do wyszukiwania
+ * @param {TableProps} data - dane przeznaczone do wyświetlenia w tablicy
+ * */
 const Search = ({ onSubmit, data }: SearchProps) => {
   return (
     <>

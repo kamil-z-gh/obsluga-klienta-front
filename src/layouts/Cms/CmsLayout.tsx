@@ -11,6 +11,13 @@ export interface CmsLayoutProps {
   children: React.ReactNode;
 }
 
+/**
+ * Komponent renderujący layout panelu administratora
+ * @param {NavBarProps}  navBarProps - prop kształtu opcji komponentu NavBar, do którego przekazuje swoje opcje
+ * @param {React.MouseEventHandler<HTMLButtonElement>} onAddBtnClick - funkcja uruchamiana w momencie naciśnięcia na przycisk dodawania
+ * @param {React.MouseEventHandler<HTMLButtonElement>} onBrowseBtnClick - funkcja uruchamiająca się po naciśnięciu na przycisk przeglądania
+ * @param {React.ReactNode} children - zawartość strony
+ * */
 const CmsLayout = ({
   navBarProps,
   children,

@@ -25,12 +25,13 @@ export interface NavBarProps {
   onLogoutBtnClick?: ButtonProps["onClick"];
   logoutBtnLabel?: string;
 }
-
-export default function NavBar({
-  logo,
-  onLogoutBtnClick,
-  logoutBtnLabel,
-}: NavBarProps) {
+/**
+ * Komponent renderujący NavBar znajdujący się na górze strony
+ * @param {React.ReactNode}  logo - komponent/napis użyty jako logo
+ * @param {React.MouseEventHandler<HTMLButtonElement>=} onLogoutBtnClick - funkcja uruchamiana po kliknięciu na ikonkę wylogowania. Jeśli nie podano - nie pjawi się przycisk
+ * @param {string=} logoutBtnLabel - napis przycisku do wylogowania. Jeśli nie podano - nie pojawi się przycisk
+ * */
+function NavBar({ logo, onLogoutBtnClick, logoutBtnLabel }: NavBarProps) {
   const classes = useStyles();
 
   return (
@@ -67,3 +68,5 @@ export default function NavBar({
     </div>
   );
 }
+
+export default NavBar;
