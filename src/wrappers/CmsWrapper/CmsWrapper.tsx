@@ -9,8 +9,8 @@ export interface CmsWrapperProps {
 }
 
 /**
- * Komponent renderujący uzupełnionymi layout panelu administratora
- * @param {React.ReactNode} children - głowa zawartość panelu
+ * Komponent zwracający uzupełniony danymi układ panelu administratora
+ * @param {React.ReactNode} children - główna zawartość panelu
  * */
 const CmsWrapper = ({ children }: CmsWrapperProps) => {
   const router = useRouter();

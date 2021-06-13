@@ -74,7 +74,7 @@ export interface TouristPointFormProps {
  * @property {number | ""} rating - ocena obiektu
  * @property {number | ""} phone - telefon kontaktowy do punktu turystycznego
  * @property {string} description - opis punktu turystycznego
- * @property {IWeekOpenHours} openHours - obiekt zawierający godziny wstepu na dany obiekt turystyczny
+ * @property {IWeekOpenHours} openHours - obiekt zawierający godziny wstępu na dany obiekt turystyczny
  * @property {string} imageSRC - link do poglądowego zdjęcia
  */
 
@@ -87,7 +87,7 @@ export interface TouristPointFormProps {
 
 /**
  * Komponent renderujący formularz dodawania/edycji punktu turystycznego
- * @param {onSubmit}  onSubmit - funkcja uruchamiana podczas submitowania formularza
+ * @param {onSubmit}  onSubmit - funkcja uruchamiana podczas obsługi danych z formularza
  * @param {TableProps} initialValues - dane uzupełnione przez użytkownika w formularzu
  * @param {string} actionBtnLabel - napis wyświetlany na przycisku obsługującym formularz
  * */

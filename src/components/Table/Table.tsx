@@ -136,26 +136,26 @@ export interface TableProps {
 
 /**
  * @callback onDeleteClick
- * @param {string} itemId - id punktu turystycznego
+ * @param {string} itemId - identyfikator punktu turystycznego
  * @returns {void}
  */
 /**
  * @callback onEditClick
- * @param {string} itemId - id punktu turystycznego
+ * @param {string} itemId - identyfikator punktu turystycznego
  * @returns {void}
  */
 /**
  * @typedef {object} Item - interface pojedynczego itemu wyświetlanego w tabeli
- * @property {string} id - id danego elementu
+ * @property {string} id - identyfikator danego elementu
  * @property {string} name - nazwa danego elementu
  * @property {string} localization - lokalizacja danego elementu
  * @property {number} price - cena wstępu na dany obiekt
  */
 /**
- * Komponent renderujący tabelę przedstawiającą punkty turystyczne
- * @param {Item[]}  rows - prop otrzymujący dane, na podstawie których renderuje zawartość
- * @param {onDeleteClick=}  onDeleteClick - funkcja uruchamiana przy kliknięciu na ikonę usunięcia - jeśli nie podano: nie wyrendruje się ikona
- * @param {onEditClick=}  onEditClick - funkcja uruchamiana przy kliknięciu na ikonę edycji - jeśli nie podano: nie wyrendruje się ikona
+ * Komponent zwracający tabelę przedstawiającą punkty turystyczne
+ * @param {Item[]}  rows - właściwość otrzymująca dane, na podstawie których zwraca zawartość
+ * @param {onDeleteClick=}  onDeleteClick - funkcja uruchamiana przy kliknięciu na ikonę usunięcia - jeśli nie podano: nie pojawi się ikona
+ * @param {onEditClick=}  onEditClick - funkcja uruchamiana przy kliknięciu na ikonę edycji - jeśli nie podano: nie pojawi się ikona
  * */
 function CustomTable({ rows, onDeleteClick, onEditClick }: TableProps) {
   const classes = useStyles2();

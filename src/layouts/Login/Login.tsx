@@ -37,9 +37,9 @@ export interface LoginProps {
  */
 
 /**
- * Komponent renderujący layout logownaia do panelu administratora
- * @param {SpecialType}  logo - logo renderowane na górze panelu z formularzem
- * @param {onSubmit} onSubmit - funkcja submitująca formularz logowania
+ * Komponent zwracający układ logownaia do panelu administratora
+ * @param {SpecialType}  logo - logo zwracane na górze panelu z formularzem
+ * @param {onSubmit} onSubmit - funkcja obsługująca formularz logowania
  */
 const Login = ({ logo, onSubmit }: LoginProps) => {
   const theme = useTheme();

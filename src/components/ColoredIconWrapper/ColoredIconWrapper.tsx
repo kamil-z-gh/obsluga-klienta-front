@@ -5,8 +5,8 @@ export interface ColoredIconWrapperProps {
   children: React.ReactNode;
 }
 /**
- * Komponent pozwalający na zmianę domyslnego koloru ikony przekazywanej jako jego children
- * @param {string}  color - parametr okreslający color ikony
+ * Komponent pozwalający na zmianę domyślnego koloru ikony przekazywanej jako jego właściwość o nazwie children
+ * @param {string}  color - parametr określający color ikony
  * @param {React.ReactNode} children - przekazywana ikona (można też przekazać string)
  * */
 const ColoredIconWrapper = ({

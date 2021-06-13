@@ -1,5 +1,5 @@
 import * as yup from "yup";
-/** globalne ustawienia walidacji pól formularzy: required oraz email */
+/** globalne ustawienia walidacji pól formularzy */
 yup.setLocale({
   mixed: {
     required: "To pole jest wymagane",

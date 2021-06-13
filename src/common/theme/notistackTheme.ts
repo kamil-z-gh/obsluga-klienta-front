@@ -1,7 +1,7 @@
 import { makeStyles } from "@material-ui/core/styles";
 import muiTheme from "./theme";
 /**
- * react hook tworzący style dla Notistack
+ * zmienna tworząca style dla paczki Notistack
  */
 export const useNotistackStyles = makeStyles(() => ({
   success: {

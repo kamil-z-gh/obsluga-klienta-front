@@ -32,8 +32,8 @@ export interface SearchProps {
  * @returns {void}
  */
 /**
- * Komponent renderujący głowny widok wyszukiwania punktów turystycznych widziany przez klienta
- * @param {onSubmit}  onSubmit - funkcja uruchamiana podczas submitowania formularza do wyszukiwania
+ * Komponent zwracający głowny widok wyszukiwania punktów turystycznych widziany przez klienta
+ * @param {onSubmit}  onSubmit - funkcja uruchamiana podczas obsługi formularza do wyszukiwania
  * @param {TableProps} data - dane przeznaczone do wyświetlenia w tablicy
  * */
 const Search = ({ onSubmit, data }: SearchProps) => {
